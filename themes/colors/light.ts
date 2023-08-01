@@ -9,7 +9,7 @@ const light = {
     DEFAULT: "#f1f5f9",
     foreground: "#0f172a",
   },
-  destructive: {
+  danger: {
     DEFAULT: "#ef4444",
     foreground: "#f8fafc",
   },

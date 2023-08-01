@@ -1,21 +1,31 @@
+import MainLayout from '@/components/layouts/MainLayout'
 import RootLayout from '@/components/layouts/RootLayout'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/router'
-import React, { ReactElement } from 'react'
+import React, { Fragment, ReactElement } from 'react'
 
 type Props = {}
 
 const Dashboard = (props: Props) => {
     const router = useRouter()
     return (
-        <div className='text-4xl font-bold p-5 flex items-center gap-2'>
-            Dashboard Page
-            <Button onClick={() => router.push("/")}>Home</Button>
-        </div>
+        <Fragment>
+            <div className='text-4xl font-bold pb-5 pl-5 flex items-center gap-2'>
+                Dashboard Page
+                <Button onClick={() => router.push("/")}>Home</Button>
+            </div>
+            <div>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </div>
+        </Fragment>
     )
 }
 export default Dashboard
 
 Dashboard.getLayout = (page: ReactElement) => {
-    return (<RootLayout>{page}</RootLayout>);
+    return (
+        <RootLayout>
+            <MainLayout>
+                {page}
+            </MainLayout>
+        </RootLayout>
+    );
 };

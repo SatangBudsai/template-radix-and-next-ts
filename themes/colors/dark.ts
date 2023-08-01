@@ -9,7 +9,7 @@ const dark = {
     DEFAULT: "#1e293b",
     foreground: "#f8fafc",
   },
-  destructive: {
+  danger: {
     DEFAULT: "#7f1d1d",
     foreground: "#fef2f2",
   },
