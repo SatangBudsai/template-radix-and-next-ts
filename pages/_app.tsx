@@ -10,7 +10,8 @@ import { ReactElement, ReactNode } from 'react';
 import { NextPage } from 'next';
 const queryClient = new QueryClient();
 
-import { AppPropsWithLayout } from './types/withLayout/AppPropsWithLayout';
+import { AppPropsWithLayout } from './types/layout/AppPropsWithLayout';
+import ProviderAuth from '@/providers/auth';
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page: ReactElement) => page);
@@ -18,7 +19,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <Nprogress>
-          {getLayout(<Component {...pageProps} />)}
+          <ProviderAuth>
+            {getLayout(<Component {...pageProps} />)}
+          </ProviderAuth>
         </Nprogress>
       </QueryClientProvider>
     </Provider>
