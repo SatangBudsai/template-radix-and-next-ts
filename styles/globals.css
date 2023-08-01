@@ -4,8 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/*FIXME: ThemeColors */
+@import url(colors/index.css);
+
 @import url(nprogress.css);
 @import url(hidden-scrollbar.css);
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
 
 @layer base {
   * {
@@ -13,5 +22,9 @@
     font-family: "Inter", sans-serif;
     margin: 0;
     padding: 0;
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }

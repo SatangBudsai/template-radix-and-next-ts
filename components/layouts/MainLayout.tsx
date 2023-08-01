@@ -1,3 +1,5 @@
+"use client"
+
 import React, { ReactNode } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
@@ -10,7 +12,9 @@ type Props = {
 const MainLayout = (props: Props) => {
     return (
         <div className="flex flex-row min-h-screen max-w-screen ">
-            <Sidebar />
+            <div className='max-h-screen min-w-[10rem] bg-background drop-shadow-2xl overflow-y-auto hidden-scrollbar max-md:hidden'>
+                <Sidebar />
+            </div>
             <div className="flex-grow">
                 <div className='flex flex-col min-h-screen '>
                     <Navbar />

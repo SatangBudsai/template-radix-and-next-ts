@@ -1,3 +1,5 @@
+"use client"
+
 import Head from 'next/head'
 import React, { Fragment, ReactNode } from 'react'
 
