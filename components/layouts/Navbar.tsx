@@ -4,13 +4,11 @@ import React from 'react'
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet'
 import Sidebar from './Sidebar'
 import { Menu } from 'lucide-react'
-import { useTheme } from "next-themes"
 import ToggleTheme from './ToggleTheme'
 
 type Props = {}
 
 const Navbar = (props: Props) => {
-    const { setTheme } = useTheme()
     return (
         <div className='flex justify-between p-5 bg-background'>
             <div>Navbar</div>
