@@ -1,4 +1,5 @@
 @tailwind base;
+
 @layer base {
   .dark {
     --background: 222.2 84% 4.9%;
