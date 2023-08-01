@@ -19,7 +19,7 @@ const RootLayout = (props: Props) => {
                 <meta name="description" content={props.desc} />
                 <meta name="keyword" content={props.keyword} />
             </Head>
-            <main data-theme='light' className='border-border bg-background text-foreground min-h-[100dvh]'>
+            <main>
                 {props.children}
             </main>
         </Fragment>
