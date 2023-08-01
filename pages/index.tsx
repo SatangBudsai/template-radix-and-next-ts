@@ -1,5 +1,6 @@
+import RootLayout from '@/components/layouts/RootLayout'
 import { Button } from '@/components/ui/button'
-import React from 'react'
+import React, { ReactElement } from 'react'
 
 type Props = {}
 
@@ -12,3 +13,7 @@ const Home = (props: Props) => {
   )
 }
 export default Home
+
+Home.getLayout = (page: ReactElement) => {
+  return (<RootLayout>{page}</RootLayout>);
+};

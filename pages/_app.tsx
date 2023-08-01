@@ -6,14 +6,19 @@ import store from '@/redux/store';
 import { Provider } from "react-redux";
 //Use React Query
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactElement, ReactNode } from 'react';
+import { NextPage } from 'next';
 const queryClient = new QueryClient();
 
-export default function App({ Component, pageProps }: AppProps) {
+import { AppPropsWithLayout } from './types/withLayout/AppPropsWithLayout';
+
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout || ((page: ReactElement) => page);
   return (
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <Nprogress>
-          <Component {...pageProps} />
+          {getLayout(<Component {...pageProps} />)}
         </Nprogress>
       </QueryClientProvider>
     </Provider>
