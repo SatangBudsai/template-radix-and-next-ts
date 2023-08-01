@@ -17,7 +17,7 @@ const ProviderAuth = (props: Props) => {
             router.asPath.startsWith(route)
         )
         if (!token && isPrivateRoute) {
-            router.push("") // Path Login
+            router.push("/") // Path Login
         } else {
             setLoading(false)
         }
