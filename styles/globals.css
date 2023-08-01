@@ -14,9 +14,6 @@
   :root {
     --radius: 0.5rem;
   }
-}
-
-@layer base {
   * {
     font-family: "IBM Plex Sans Thai", sans-serif;
     font-family: "Inter", sans-serif;
