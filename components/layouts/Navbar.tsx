@@ -2,9 +2,9 @@
 
 import React from 'react'
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet'
-import Sidebar from './Sidebar'
 import { Menu } from 'lucide-react'
 import ToggleTheme from './ToggleTheme'
+import { MenuSidebar } from './Sidebar'
 
 type Props = {}
 
@@ -20,7 +20,7 @@ const Navbar = (props: Props) => {
                             <Menu className="h-7 w-7 mt-2" />
                         </SheetTrigger>
                         <SheetContent side={"left"} className='overflow-y-auto hidden-scrollbar'>
-                            <Sidebar />
+                            <MenuSidebar />
                         </SheetContent>
                     </Sheet>
                 </div>

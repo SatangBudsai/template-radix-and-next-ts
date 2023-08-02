@@ -2,33 +2,52 @@
 
 @layer base {
   :root {
-    --background: 255 255 255; /* rgb(255, 255, 255) */
-    --foreground: 2 8 23; /* rgb(2, 8, 23) */
+    /* color: rgb(255, 255, 255); */
+    --background: 255 255 255;
+    /* color: rgb(2, 8, 23); */
+    --foreground: 2 8 23; /*
 
-    --muted: 241 245 249; /* rgb(241, 245, 249)  */
-    --muted-foreground: 100 116 139; /* rgb(100, 116, 139) */
+    /* color:  rgb(241, 245, 249) ; */
+    --muted: 241 245 249;
+    /* color: rgb(100, 116, 139) ; */
+    --muted-foreground: 100 116 139;
 
-    --popover: 255 255 255; /* rgb(255, 255, 255) */
-    --popover-foreground: 2 8 23; /* rgb(2, 8, 23) */
+    /* color: rgb(255, 255, 255) ; */
+    --popover: 255 255 255;
+    /* color: rgb(2, 8, 23) ; */
+    --popover-foreground: 2 8 23;
 
-    --card: 255 255 255; /* rgb(255, 255, 255) */
-    --card-foreground: 2 8 23; /* rgb(2, 8, 23) */
+    /* color:  rgb(255, 255, 255) ; */
+    --card: 255 255 255;
+    /* color: rgb(2, 8, 23) ; */
+    --card-foreground: 2 8 23;
 
-    --border: 226, 232, 240; /* rgb(226, 232, 240) */
-    --input: 226, 232, 240; /* rgb(226, 232, 240) */
+    /* color: rgb(226, 232, 240) ; */
+    --border: 226, 232, 240;
+    /* color: rgb(226, 232, 240) ; */
+    --input: 226, 232, 240;
 
-    --primary: 15 23 42; /* rgb(15, 23, 42) */
-    --primary-foreground: 248 250 252; /*rgb(248, 250, 252)*/
+    /* color: rgb(15, 23, 42) ; */
+    --primary: 15 23 42;
+    /* color: rgb(248, 250, 252) ; */
+    --primary-foreground: 248 250 252;
 
-    --secondary: 241 245 249; /* rgb(241, 245, 249)  */
-    --secondary-foreground: 15 23 42; /* rgb(15, 23, 42) */
+    /* color: rgb(241, 245, 249) ; */
+    --secondary: 241 245 249;
+    /* color: rgb(15, 23, 42) ; */
+    --secondary-foreground: 15 23 42;
 
-    --accent: 241 245 249; /* rgb(241, 245, 249)  */
-    --accent-foreground: 15 23 42; /*rgb(15, 23, 42) */
+    /* color: rgb(241, 245, 249) ; */
+    --accent: 241 245 249;
+    /* color: rgb(15, 23, 42) ; */
+    --accent-foreground: 15 23 42;
 
-    --danger: 0 84.2% 60.2%; /* rgb(239, 68, 68) */
-    --danger-foreground: 248 250 252; /*	rgb(248, 250, 252)*/
+    /* color: rgb(239, 68, 68) ; */
+    --danger: 0 84.2% 60.2%;
+    /* color: rgb(248, 250, 252) ; */
+    --danger-foreground: 248 250 252;
 
-    --ring: 215 20.2% 65.1%; /*rgb(148, 163, 184) */
+    /* color: rgb(148, 163, 184) ; */
+    --ring: 215 20.2% 65.1%;
   }
 }
