@@ -12,7 +12,7 @@ const Dashboard = (props: Props) => {
         <Fragment>
             <div className='text-4xl font-bold pb-5 pl-5 flex items-center gap-2'>
                 Dashboard Page
-                <Button onClick={() => router.push("/")}>Home</Button>
+                <Button variant='danger' onClick={() => router.push("/")}>Home</Button>
             </div>
             <div>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </div>
         </Fragment>

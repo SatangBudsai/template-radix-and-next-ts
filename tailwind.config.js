@@ -31,9 +31,9 @@ module.exports = {
           DEFAULT: "rgb(var(--secondary))",
           foreground: "rgb(var(--secondary-foreground))",
         },
-        destructive: {
-          DEFAULT: "rgb(var(--destructive))",
-          foreground: "rgb(var(--destructive-foreground))",
+        danger: {
+          DEFAULT: "rgb(var(--danger))",
+          foreground: "rgb(var(--danger-foreground))",
         },
         muted: {
           DEFAULT: "rgb(var(--muted))",

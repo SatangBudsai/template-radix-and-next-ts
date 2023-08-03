@@ -7,54 +7,55 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 type Props = {}
 
 export const MenuSidebar = () => {
-    return (<Fragment>
-        <div className='flex justify-center pt-5'>Sidebar</div>
-        <div className='p-5'>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-            <div>namemenu</div>
-        </div>
-    </Fragment>)
+    return (
+        <Fragment>
+            <div className='flex justify-center pt-5'>Sidebar</div>
+            <div className='p-5'>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+                <div>namemenu</div>
+            </div>
+        </Fragment>)
 }
 
 const Sidebar = (props: Props) => {
@@ -63,7 +64,7 @@ const Sidebar = (props: Props) => {
             <PerfectScrollbar>
                 <MenuSidebar />
             </PerfectScrollbar>
-        </div>
+        </div >
     )
 }
 
