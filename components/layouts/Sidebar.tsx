@@ -1,12 +1,14 @@
 "use client"
 
 import React, { Fragment } from 'react'
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import 'react-perfect-scrollbar/dist/css/styles.css';
 
 type Props = {}
 
 export const MenuSidebar = () => {
     return (<Fragment>
-        <div className='flex justify-center py-5 border-b-2'>Sidebar</div>
+        <div className='flex justify-center pt-5'>Sidebar</div>
         <div className='p-5'>
             <div>namemenu</div>
             <div>namemenu</div>
@@ -57,8 +59,10 @@ export const MenuSidebar = () => {
 
 const Sidebar = (props: Props) => {
     return (
-        <div className='max-h-screen min-w-[14rem] bg-background border-r-2 border-foreground/10 drop-shadow-2xl overflow-y-auto hidden-scrollbar max-md:hidden'>
-            <MenuSidebar />
+        <div className='max-h-screen min-w-[14rem] bg-background drop-shadow-2xl max-md:hidden'>
+            <PerfectScrollbar>
+                <MenuSidebar />
+            </PerfectScrollbar>
         </div>
     )
 }
