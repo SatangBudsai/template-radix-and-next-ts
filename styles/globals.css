@@ -5,8 +5,8 @@
 @tailwind utilities;
 
 /*FIXME: ThemeColors */
-@import url(colors/ligth.css);
-@import url(colors/dark.css);
+@import url(themes/ligth.css);
+@import url(themes/dark.css);
 
 @import url(nprogress.css);
 @import url(hidden-scrollbar.css);
