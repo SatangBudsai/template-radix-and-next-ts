@@ -22,7 +22,7 @@ const Navbar = (props: Props) => {
                                 <Menu className="h-7 w-7 mt-2" />
                             </SheetTrigger>
                             <SheetContent side={"left"} className='overflow-y-auto hidden-scrollbar w-[20rem]'>
-                                <MenuSidebar />
+                                <MenuSidebar isOpened={true} />
                             </SheetContent>
                         </Sheet>
                     </div>

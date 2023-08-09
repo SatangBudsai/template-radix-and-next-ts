@@ -3,71 +3,69 @@
 import Link from 'next/link';
 import router from 'next/router';
 import Image from 'next/image';
-import React, { Fragment, ReactNode, useState } from 'react'
+import React, { Fragment, ReactElement, ReactNode, useState } from 'react'
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import { ChevronRight, Home, LayoutDashboard } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
-type MenuLinkProps = {
-    path: string
-    children: ReactNode
-}
-
-const MenuItem = (menuLinkProps: MenuLinkProps) => {
-    const active = router.pathname === menuLinkProps.path
-
-    return (
-        <Link
-            href={menuLinkProps.path}
-            className={`flex items-center gap-2 text-lg py-2 pl-4 rounded-lg hover:pl-6 transition-all
-             ${active ? 'bg-primary text-primary-foreground'
-                    : 'text-foreground hover:bg-secondary'}`}
-        >
-            {menuLinkProps.children}
-        </Link>
-    );
-};
-
 type MenuSidebarProp = {
-    isOpened?: boolean
+    isOpened: boolean
 }
 
 export const MenuSidebar = (menuSidebarProps: MenuSidebarProp) => {
+    type MenuItemProps = {
+        path: string
+        label: string
+        icon: ReactElement
+    }
+
+    const MenuItem = (menuItemProps: MenuItemProps) => {
+        const active = router.pathname === menuItemProps.path
+        return (
+            <Link
+                href={menuItemProps.path}
+                className={`flex items-center gap-2 text-lg h-10 pl-4 rounded-lg hover:pl-6 transition-all 
+                ${active ? 'bg-primary text-primary-foreground' : 'text-foreground hover:bg-secondary'}`}
+            >
+                <div className='flex items-center w-fit h-full'>
+                    {menuItemProps.icon}
+                </div>
+                <div className={`${!menuSidebarProps?.isOpened && "hidden"}`}>{menuItemProps.label}</div>
+            </Link>
+        );
+    };
+
     return (
         <Fragment>
-            <div className='flex items-center gap-3 pl-5 py-8'>
+            <div className='flex justify-center items-center gap-3 h-20'>
                 <Image
                     src="/favicon.ico"
                     width={30}
                     height={30}
                     alt="logo"
                 />
-                <div className='text-primary'>
-                    <div className='text-2xl font-bold'>TEMPLATE</div>
+                <div className={`text-2xl font-bold text-primary ${!menuSidebarProps?.isOpened && "hidden"}`}>
+                    TEMPLATE
                 </div>
             </div>
             <div className='flex flex-col gap-3 pt-4'>
-                <MenuItem path='/'>
-                    <Home />
-                    <div className={`transition-all ${menuSidebarProps?.isOpened ? "scale-100" : "scale-0"}`}>Home</div>
-                </MenuItem>
-                <MenuItem path='/dashboard'>
-                    <LayoutDashboard />
-                    <div className={`transition-all ${menuSidebarProps?.isOpened ? "scale-100" : "scale-0"}`}>Dashboard</div>
-                </MenuItem>
+                <MenuItem path='/' label='Home' icon={<Home />} />
+                <MenuItem path='/dashboard' label='Dashboard' icon={<LayoutDashboard />} />
             </div>
-        </Fragment>)
+        </Fragment >)
 }
 
 const Sidebar = () => {
     const [isOpened, setIsOpened] = useState(true);
     return (
-        <Card className={`h-[100dvh] transition-all ${isOpened ? " min-w-[16rem]" : "min-w-[10rem]"} z-10 sticky top-0 rounded-2xl drop-shadow-xl max-md:hidden`}>
+        <Card className={`h-[100dvh] transition-all z-10 sticky top-0 rounded-2xl drop-shadow-xl max-md:hidden
+            ${isOpened ? "min-w-[16rem]" : "min-w-[5rem]"}`} >
             <PerfectScrollbar className='px-3'>
                 <MenuSidebar isOpened={isOpened} />
             </PerfectScrollbar>
-            <div className='absolute top-5 -right-6 bg-card p-3 rounded-full hover:scale-110 transition-all cursor-pointer'
+            <div
+                className='absolute top-16 -right-6 bg-card p-2 rounded-full transition-all cursor-pointer'
                 onClick={() => { (setIsOpened(!isOpened)) }}
             >
                 <ChevronRight className={`h-8 w-8 transition-all ${isOpened && "rotate-180"}`} />
