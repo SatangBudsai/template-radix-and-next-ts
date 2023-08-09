@@ -2,8 +2,8 @@
 
 @layer base {
   :root {
-    /* color: rgb(255, 255, 255); */
-    --background: 255 255 255;
+    /* color: rgb(242, 246, 250); */
+    --background: 242 246 250;
     /* color: rgb(2, 8, 23); */
     --foreground: 2 8 23;
 
@@ -17,15 +17,25 @@
     /* color: rgb(15, 23, 42) ; */
     --secondary-foreground: 15 23 42;
 
+    /* color: rgb(29, 209, 23); */
+    --success: 29 209 23;
+    /* color: rgb(248, 250, 252) ; */
+    --success-foreground: 248 250 252;
+
+    /* color: rgb(238, 187, 20); */
+    --warning: 238 187 20;
+    /* color: rgb(248, 250, 252) ; */
+    --warning-foreground: 248 250 252;
+
+    /* color: rgb(231, 12, 59); */
+    --danger: 231 12 59;
+    /* color: rgb(248, 250, 252) ; */
+    --danger-foreground: 248 250 252;
+
     /* color: rgb(241, 245, 249) ; */
     --accent: 241 245 249;
     /* color: rgb(15, 23, 42) ; */
     --accent-foreground: 15 23 42;
-
-    /* color: rgb(239, 68, 68) ; */
-    --danger: 239 68 68;
-    /* color: rgb(248, 250, 252) ; */
-    --danger-foreground: 248 250 252;
 
     /* color:  rgb(241, 245, 249) ; */
     --muted: 241 245 249;

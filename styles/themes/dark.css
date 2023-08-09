@@ -22,11 +22,21 @@
     /* color: rgb(248, 250, 252) ; */
     --accent-foreground: 248 250 252;
 
-    /* color: rgb(127, 29, 29) ; */
-    --danger: 127 29 29;
+    /* color: rgb(45, 231, 39); */
+    --success: 45 231 39;
     /* color: rgb(248, 250, 252) ; */
-    --danger-foreground: 254 242 242;
+    --success-foreground: 248 250 252;
 
+    /* color: rgb(238, 191, 35); */
+    --warning: 238 191 35;
+    /* color: rgb(248, 250, 252) ; */
+    --warning-foreground: 248 250 252;
+
+    /* color: rgb(233, 26, 71); */
+    --danger: 233 26 71;
+    /* color: rgb(248, 250, 252) ; */
+
+    --danger-foreground: 254 242 242;
     /* color: rgb(30, 41, 59) ; */
     --muted: 30 41 59;
     /* color: rgb(148, 163, 184); */

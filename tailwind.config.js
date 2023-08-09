@@ -31,6 +31,14 @@ module.exports = {
           DEFAULT: "rgb(var(--secondary))",
           foreground: "rgb(var(--secondary-foreground))",
         },
+        success: {
+          DEFAULT: "rgb(var(--success))",
+          foreground: "rgb(var(--success-foreground))",
+        },
+        warning: {
+          DEFAULT: "rgb(var(--warning))",
+          foreground: "rgb(var(--warning-foreground))",
+        },
         danger: {
           DEFAULT: "rgb(var(--danger))",
           foreground: "rgb(var(--danger-foreground))",
