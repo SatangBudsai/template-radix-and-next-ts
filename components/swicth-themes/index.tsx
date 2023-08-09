@@ -6,7 +6,7 @@ import { useTheme } from 'next-themes'
 
 type Props = {}
 
-const ToggleTheme = (props: Props) => {
+const SwicthThemes = (props: Props) => {
     const { setTheme } = useTheme()
 
     return (
@@ -33,4 +33,4 @@ const ToggleTheme = (props: Props) => {
     )
 }
 
-export default ToggleTheme
+export default SwicthThemes

@@ -1,10 +1,10 @@
 "use client"
 
 import React from 'react'
-import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet'
+import { Sheet, SheetContent, SheetTrigger } from '../../ui/sheet'
 import { Menu } from 'lucide-react'
-import ToggleTheme from './ToggleTheme'
 import { MenuSidebar } from './Sidebar'
+import SwicthThemes from '@/components/swicth-themes'
 
 type Props = {}
 
@@ -13,7 +13,7 @@ const Navbar = (props: Props) => {
         <div className='flex justify-between p-5 bg-background'>
             <div>Navbar</div>
             <div className='flex items-center gap-5'>
-                <ToggleTheme />
+                <SwicthThemes />
                 <div className='md:hidden'>
                     <Sheet>
                         <SheetTrigger>
