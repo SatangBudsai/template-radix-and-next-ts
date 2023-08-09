@@ -1,5 +1,8 @@
+"use client"
+
 import { Router } from "next/router";
 import NProgress from "nprogress";
+import { Fragment } from "react";
 
 Router.events.on("routeChangeStart", () => {
     NProgress.start();
@@ -19,7 +22,7 @@ type Props = {
 
 const Nprogress = (props: Props) => {
     return (
-        <div>{props.children}</div>
+        <Fragment>{props.children}</Fragment>
     )
 }
 
