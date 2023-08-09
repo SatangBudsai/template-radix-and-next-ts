@@ -13,7 +13,7 @@ type Props = {}
 
 const Navbar = (props: Props) => {
     return (
-        <div className='pt-5 px-8 sticky bg-background top-0'>
+        <nav className='pt-5 px-8 sticky bg-background top-0'>
             <Card className='flex justify-between items-center py-2 px-5 '>
                 <div>
                     <div className='md:hidden'>
@@ -22,7 +22,7 @@ const Navbar = (props: Props) => {
                                 <Menu className="h-7 w-7 mt-2" />
                             </SheetTrigger>
                             <SheetContent side={"left"} className='overflow-y-auto hidden-scrollbar w-[20rem]'>
-                                <MenuSidebar isOpened={true} />
+                                <MenuSidebar />
                             </SheetContent>
                         </Sheet>
                     </div>
@@ -34,7 +34,7 @@ const Navbar = (props: Props) => {
                     </Button>
                 </div>
             </Card>
-        </div>
+        </nav>
     )
 }
 

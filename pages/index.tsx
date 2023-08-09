@@ -1,3 +1,4 @@
+import MainLayout from '@/components/layouts/MainLayout'
 import RootLayout from '@/components/layouts/RootLayout'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/router'
@@ -17,5 +18,11 @@ const Home = (props: Props) => {
 export default Home
 
 Home.getLayout = (page: ReactElement) => {
-  return (<RootLayout>{page}</RootLayout>);
+  return (
+    <RootLayout>
+      <MainLayout>
+        {page}
+      </MainLayout>
+    </RootLayout>
+  );
 };
