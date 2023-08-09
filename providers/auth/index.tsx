@@ -8,7 +8,7 @@ type Props = {
 //path private
 const privateRoute: string[] = []
 
-const ProviderAuth = (props: Props) => {
+const AuthProvider = (props: Props) => {
     const router = useRouter()
     const [isLoading, setLoading] = useState(true)
     useEffect(() => {
@@ -21,13 +21,13 @@ const ProviderAuth = (props: Props) => {
         } else {
             setLoading(false)
         }
-    }, [router.asPath])
+    }, [])
 
     if (isLoading) {
-        return null // Or you can return a loading 
+        return null // Or you can return a loading
     }
 
     return props.children
 }
 
-export default ProviderAuth
+export default AuthProvider
