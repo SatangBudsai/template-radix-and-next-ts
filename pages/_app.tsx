@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import Nprogress from '@/components/nprogress'
+import Nprogress from '@/components/third-party/nprogress'
 import '@/styles/globals.css'
 
 //SetUp Store redux
