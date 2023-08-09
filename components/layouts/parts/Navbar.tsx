@@ -13,27 +13,29 @@ type Props = {}
 
 const Navbar = (props: Props) => {
     return (
-        <nav className='pt-5 px-8 sticky bg-background top-0'>
-            <Card className='flex justify-between items-center py-2 px-5 '>
-                <div>
-                    <div className='md:hidden'>
-                        <Sheet>
-                            <SheetTrigger>
-                                <Menu className="h-7 w-7 mt-2" />
-                            </SheetTrigger>
-                            <SheetContent side={"left"} className='overflow-y-auto hidden-scrollbar w-[20rem]'>
-                                <MenuSidebar />
-                            </SheetContent>
-                        </Sheet>
+        <nav className='sticky top-0 z-10'>
+            <div className='bg-background py-5 px-8 '>
+                <Card className='flex justify-between items-center py-2 px-5 '>
+                    <div>
+                        <div className='md:hidden'>
+                            <Sheet>
+                                <SheetTrigger>
+                                    <Menu className="h-7 w-7 mt-2" />
+                                </SheetTrigger>
+                                <SheetContent side={"left"} className='overflow-y-auto hidden-scrollbar w-[20rem]'>
+                                    <MenuSidebar />
+                                </SheetContent>
+                            </Sheet>
+                        </div>
                     </div>
-                </div>
-                <div className='flex items-center gap-1'>
-                    <SwicthThemes />
-                    <Button variant={'ghost'} size="icon" onClick={() => router.push('/')}>
-                        <LogOut className="h-[1.2rem] w-[1.2rem]" />
-                    </Button>
-                </div>
-            </Card>
+                    <div className='flex items-center gap-1'>
+                        <SwicthThemes />
+                        <Button variant={'ghost'} size="icon" onClick={() => router.push('/')}>
+                            <LogOut className="h-5 w-5" />
+                        </Button>
+                    </div>
+                </Card>
+            </div>
         </nav>
     )
 }

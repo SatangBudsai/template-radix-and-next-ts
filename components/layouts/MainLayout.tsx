@@ -17,7 +17,7 @@ const MainLayout = (props: Props) => {
                 <div className='flex flex-col min-h-[100dvh] '>
                     <Navbar />
                     <div className="flex-grow">
-                        <main className="px-8 py-5">
+                        <main className="px-8 pb-5">
                             {props.children}
                         </main>
                     </div>
