@@ -11,17 +11,16 @@ type Props = {
 
 const MainLayout = (props: Props) => {
     return (
-        <div className="flex flex-row min-h-screen max-w-screen">
+        <div className="flex flex-row min-h-[100dvh] max-w-screen">
             <Sidebar />
             <div className="flex-grow">
-                <div className='flex flex-col min-h-screen '>
+                <div className='flex flex-col min-h-[100dvh] '>
                     <Navbar />
                     <div className="flex-grow">
-                        <main className="p-5">
+                        <main className="px-8 py-5">
                             {props.children}
                         </main>
                     </div>
-                    <Footer />
                 </div>
             </div>
         </div>
