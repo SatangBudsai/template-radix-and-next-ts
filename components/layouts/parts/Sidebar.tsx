@@ -3,10 +3,10 @@
 import Link from 'next/link';
 import router from 'next/router';
 import Image from 'next/image';
-import React, { Fragment, ReactNode } from 'react'
+import React, { Fragment, ReactNode, useState } from 'react'
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';
-import { Home, LayoutDashboard } from 'lucide-react';
+import { ChevronRight, Home, LayoutDashboard } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 type MenuLinkProps = {
@@ -29,10 +29,14 @@ const MenuItem = (menuLinkProps: MenuLinkProps) => {
     );
 };
 
-export const MenuSidebar = () => {
+type MenuSidebarProp = {
+    isOpened?: boolean
+}
+
+export const MenuSidebar = (menuSidebarProps: MenuSidebarProp) => {
     return (
         <Fragment>
-            <div className='flex justify-center items-center gap-3 py-8'>
+            <div className='flex items-center gap-3 pl-5 py-8'>
                 <Image
                     src="/favicon.ico"
                     width={30}
@@ -46,22 +50,28 @@ export const MenuSidebar = () => {
             <div className='flex flex-col gap-3 pt-4'>
                 <MenuItem path='/'>
                     <Home />
-                    <div>Home</div>
+                    <div className={`transition-all ${menuSidebarProps?.isOpened ? "scale-100" : "scale-0"}`}>Home</div>
                 </MenuItem>
                 <MenuItem path='/dashboard'>
                     <LayoutDashboard />
-                    <div>Dashboard</div>
+                    <div className={`transition-all ${menuSidebarProps?.isOpened ? "scale-100" : "scale-0"}`}>Dashboard</div>
                 </MenuItem>
             </div>
         </Fragment>)
 }
 
 const Sidebar = () => {
+    const [isOpened, setIsOpened] = useState(true);
     return (
-        <Card className='h-[100dvh] min-w-[16rem] z-10 sticky top-0 rounded-2xl drop-shadow-xl max-md:hidden'>
+        <Card className={`h-[100dvh] transition-all ${isOpened ? " min-w-[16rem]" : "min-w-[10rem]"} z-10 sticky top-0 rounded-2xl drop-shadow-xl max-md:hidden`}>
             <PerfectScrollbar className='px-3'>
-                <MenuSidebar />
+                <MenuSidebar isOpened={isOpened} />
             </PerfectScrollbar>
+            <div className='absolute top-5 -right-6 bg-card p-3 rounded-full hover:scale-110 transition-all cursor-pointer'
+                onClick={() => { (setIsOpened(!isOpened)) }}
+            >
+                <ChevronRight className={`h-8 w-8 transition-all ${isOpened && "rotate-180"}`} />
+            </div>
         </Card>
     )
 }
