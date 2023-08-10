@@ -6,14 +6,14 @@ import Image from 'next/image';
 import React, { Fragment, ReactElement, ReactNode, useState } from 'react'
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';
-import { CircleDot, Component, Home, LayoutDashboard } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Icon } from '@iconify/react';
 
 type MenuItemProps = {
     path: string
     label: string
-    icon: ReactElement
+    icon: string
 }
 
 const MenuItem = (menuItemProps: MenuItemProps) => {
@@ -21,11 +21,11 @@ const MenuItem = (menuItemProps: MenuItemProps) => {
     return (
         <Link
             href={menuItemProps.path}
-            className={`flex items-center gap-2 text-base p-2 pl-4 rounded-xl hover:pl-6 transition-all 
+            className={`flex items-center gap-2 text-base p-2 pl-4 rounded-xl hover:pl-6 transition-all
                 ${active ? 'bg-primary text-primary-foreground' : 'text-foreground hover:bg-secondary'}`}
         >
             <div className='flex items-center w-fit h-full'>
-                {menuItemProps.icon}
+                <Icon icon={menuItemProps.icon} className='w-6 h-6' />
             </div>
             <div>{menuItemProps.label}</div>
         </Link>
@@ -47,19 +47,33 @@ export const MenuSidebar = () => {
                 </div>
             </div>
             <div className='flex flex-col gap-3 pt-4'>
-                <MenuItem path='/' label='Home' icon={<Home />} />
-                <MenuItem path='/dashboard' label='Dashboard' icon={<LayoutDashboard />} />
+                <MenuItem path='/' label='Home' icon='heroicons:home' />
+                <MenuItem path='/dashboard' label='Dashboard' icon='lucide:layout-dashboard' />
                 <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="item-1">
                         <AccordionTrigger>
                             <div className='flex items-center gap-2 text-lg pl-4'>
-                                <Component />
+                                <Icon icon="heroicons:swatch" className='w-6 h-6' />
                                 <div className=' text-base'>Component</div>
                             </div>
                         </AccordionTrigger>
                         <AccordionContent>
-                            <MenuItem path='/a' label='Dashboard' icon={<CircleDot />} />
-                            <MenuItem path='/b' label='Dashboard' icon={<CircleDot />} />
+                            <MenuItem path='/a' label='Dashboard' icon='radix-icons:dot' />
+                            <MenuItem path='/b' label='Dashboard' icon='radix-icons:dot' />
+                        </AccordionContent>
+                    </AccordionItem>
+                </Accordion>
+                <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="item-1">
+                        <AccordionTrigger>
+                            <div className='flex items-center gap-2 text-lg pl-4'>
+                                <Icon icon="heroicons:swatch" className='w-6 h-6' />
+                                <div className=' text-base'>Component</div>
+                            </div>
+                        </AccordionTrigger>
+                        <AccordionContent>
+                            <MenuItem path='/a' label='Dashboard' icon='radix-icons:dot' />
+                            <MenuItem path='/b' label='Dashboard' icon='radix-icons:dot' />
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>

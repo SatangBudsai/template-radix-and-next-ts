@@ -2,12 +2,12 @@
 
 import React from 'react'
 import { Sheet, SheetContent, SheetTrigger } from '../../ui/sheet'
-import { LogOut, Menu } from 'lucide-react'
 import { MenuSidebar } from './Sidebar'
 import SwicthThemes from '@/components/swicth-themes'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import router from 'next/router'
+import { Icon } from '@iconify/react';
 
 type Props = {}
 
@@ -20,7 +20,7 @@ const Navbar = (props: Props) => {
                         <div className='md:hidden'>
                             <Sheet>
                                 <SheetTrigger>
-                                    <Menu className="h-7 w-7 mt-2" />
+                                    <Icon icon="lucide:menu" className="h-7 w-7 mt-2" />
                                 </SheetTrigger>
                                 <SheetContent side={"left"} className='overflow-y-auto hidden-scrollbar w-[20rem]'>
                                     <MenuSidebar />
@@ -31,7 +31,7 @@ const Navbar = (props: Props) => {
                     <div className='flex items-center gap-1'>
                         <SwicthThemes />
                         <Button variant={'ghost'} size="icon" onClick={() => router.push('/')}>
-                            <LogOut className="h-5 w-5" />
+                            <Icon icon="lucide:log-out" className="h-5 w-5" />
                         </Button>
                     </div>
                 </Card>
