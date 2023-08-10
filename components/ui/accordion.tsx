@@ -13,7 +13,7 @@ const AccordionItem = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AccordionPrimitive.Item
     ref={ref}
-    className={cn(className)}
+    className={cn("border-b", className)}
     {...props}
   />
 ))
@@ -51,7 +51,7 @@ const AccordionContent = React.forwardRef<
     )}
     {...props}
   >
-    <div className="py-2">{children}</div>
+    <div className="py-2 flex flex-col gap-2">{children}</div>
   </AccordionPrimitive.Content>
 ))
 AccordionContent.displayName = AccordionPrimitive.Content.displayName

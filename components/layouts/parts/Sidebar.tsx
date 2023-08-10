@@ -22,7 +22,7 @@ const MenuItem = (menuItemProps: MenuItemProps) => {
         <Link
             href={menuItemProps.path}
             className={`flex items-center gap-2 text-base p-2 pl-4 rounded-xl hover:pl-6 transition-all
-                ${active ? 'bg-primary text-primary-foreground' : 'text-foreground hover:bg-secondary'}`}
+                ${active ? 'bg-primary text-primary-foreground' : 'text-foreground/70 hover:bg-secondary'}`}
         >
             <div className='flex items-center w-fit h-full'>
                 <Icon icon={menuItemProps.icon} className='w-6 h-6' />
@@ -35,45 +35,46 @@ const MenuItem = (menuItemProps: MenuItemProps) => {
 export const MenuSidebar = () => {
     return (
         <Fragment>
-            <div className='flex items-center gap-3 h-20'>
+            <div className='flex items-center gap-3 py-10 pl-5'>
                 <Image
                     src="/favicon.ico"
                     width={35}
                     height={35}
                     alt="logo"
                 />
-                <div className="text-4xl font-bold">
+                <div className="text-4xl font-semibold">
                     R&N
                 </div>
             </div>
-            <div className='flex flex-col gap-3 pt-4'>
+            <div className='flex flex-col gap-2'>
+                <div className='px-4 text-foreground/70'>MENU</div>
                 <MenuItem path='/' label='Home' icon='heroicons:home' />
                 <MenuItem path='/dashboard' label='Dashboard' icon='lucide:layout-dashboard' />
                 <Accordion type="single" collapsible className="w-full">
-                    <AccordionItem value="item-1">
+                    <AccordionItem value="item-1" className='border-0'>
                         <AccordionTrigger>
-                            <div className='flex items-center gap-2 text-lg pl-4'>
+                            <div className='flex items-center gap-2 text-lg pl-4 text-foreground/70'>
                                 <Icon icon="heroicons:swatch" className='w-6 h-6' />
                                 <div className=' text-base'>Component</div>
                             </div>
                         </AccordionTrigger>
                         <AccordionContent>
-                            <MenuItem path='/a' label='Dashboard' icon='radix-icons:dot' />
-                            <MenuItem path='/b' label='Dashboard' icon='radix-icons:dot' />
+                            <MenuItem path='/a' label='Dashboard' icon='lucide:dot' />
+                            <MenuItem path='/a' label='Dashboard' icon='lucide:dot' />
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>
                 <Accordion type="single" collapsible className="w-full">
-                    <AccordionItem value="item-1">
+                    <AccordionItem value="item-1" className='border-0'>
                         <AccordionTrigger>
-                            <div className='flex items-center gap-2 text-lg pl-4'>
+                            <div className='flex items-center gap-2 text-lg pl-4 text-foreground/70'>
                                 <Icon icon="heroicons:swatch" className='w-6 h-6' />
                                 <div className=' text-base'>Component</div>
                             </div>
                         </AccordionTrigger>
                         <AccordionContent>
-                            <MenuItem path='/a' label='Dashboard' icon='radix-icons:dot' />
-                            <MenuItem path='/b' label='Dashboard' icon='radix-icons:dot' />
+                            <MenuItem path='/a' label='Dashboard' icon='lucide:dot' />
+                            <MenuItem path='/b' label='Dashboard' icon='lucide:dot' />
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>
