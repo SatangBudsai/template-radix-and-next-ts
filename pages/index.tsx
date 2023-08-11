@@ -13,7 +13,7 @@ type Props = {}
 
 const Home = (props: Props) => {
   const router = useRouter()
-  const [date, setDate] = React.useState<Date | undefined>()
+  const [date, setDate] = React.useState<Date>()
 
   return (
     <div className='flex flex-col gap-5'>
@@ -32,11 +32,10 @@ const Home = (props: Props) => {
           <Calendar
             mode="single"
             captionLayout='dropdown-buttons'
-            defaultMonth={date}
-            selected={date}
-            onSelect={setDate}
             fromYear={1960}
             toYear={2030}
+            selected={date}
+            onSelect={setDate}
           />
         </PopoverContent>
       </Popover>
