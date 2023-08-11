@@ -21,7 +21,7 @@ const MenuItem = (menuItemProps: MenuItemProps) => {
     return (
         <Link
             href={menuItemProps.path}
-            className={`flex items-center gap-2 text-base p-2 pl-4 rounded-xl hover:pl-6 transition-all
+            className={`flex items-center gap-2 text-base py-2 pl-4 rounded-xl hover:pl-6 transition-all
                 ${active ? 'bg-primary text-primary-foreground' : 'text-foreground/70 hover:bg-secondary'}`}
         >
             <div className='flex items-center w-fit h-full'>
@@ -38,8 +38,8 @@ export const MenuSidebar = () => {
             <div className='flex items-center gap-3 py-10 pl-5'>
                 <Image
                     src="/favicon.ico"
-                    width={35}
-                    height={35}
+                    width={40}
+                    height={40}
                     alt="logo"
                 />
                 <div className="text-4xl font-semibold">
@@ -47,12 +47,12 @@ export const MenuSidebar = () => {
                 </div>
             </div>
             <div className='flex flex-col gap-2'>
-                <div className='px-4 text-foreground/70'>MENU</div>
+                <div className='px-4 text-foreground font-semibold'>MENU</div>
                 <MenuItem path='/' label='Home' icon='heroicons:home' />
                 <MenuItem path='/dashboard' label='Dashboard' icon='lucide:layout-dashboard' />
                 <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="item-1" className='border-0'>
-                        <AccordionTrigger>
+                        <AccordionTrigger className='pr-4'>
                             <div className='flex items-center gap-2 text-lg pl-4 text-foreground/70'>
                                 <Icon icon="heroicons:swatch" className='w-6 h-6' />
                                 <div className=' text-base'>Component</div>
@@ -66,7 +66,7 @@ export const MenuSidebar = () => {
                 </Accordion>
                 <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="item-1" className='border-0'>
-                        <AccordionTrigger>
+                        <AccordionTrigger className='pr-4'>
                             <div className='flex items-center gap-2 text-lg pl-4 text-foreground/70'>
                                 <Icon icon="heroicons:swatch" className='w-6 h-6' />
                                 <div className=' text-base'>Component</div>
