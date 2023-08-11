@@ -26,8 +26,4 @@
   body {
     @apply bg-background text-foreground;
   }
-
-  .rdp-vhidden {
-    @apply hidden;
-  }
 }
