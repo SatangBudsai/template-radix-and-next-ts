@@ -31,7 +31,6 @@ const Home = (props: Props) => {
         <PopoverContent align="start" className="w-auto p-0 rounded-xl">
           <Calendar
             mode="single"
-            captionLayout="dropdown-buttons"
             defaultMonth={date}
             selected={date}
             onSelect={setDate}
