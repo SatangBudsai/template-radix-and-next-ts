@@ -13,7 +13,7 @@ type Props = {}
 
 const Home = (props: Props) => {
   const router = useRouter()
-  const [date, setDate] = React.useState<Date | undefined>(new Date())
+  const [date, setDate] = React.useState<Date | undefined>()
 
   return (
     <div className='flex flex-col gap-5'>
