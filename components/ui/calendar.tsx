@@ -13,7 +13,7 @@ export type CalendarProps = React.ComponentProps<typeof DayPicker>
 function Calendar({ className, classNames, showOutsideDays = true, ...props }: CalendarProps) {
   return (
     <DayPicker
-      initialFocus
+
       fixedWeeks
       fromYear={new Date().getFullYear() - 10}
       toYear={new Date().getFullYear() + 5}
