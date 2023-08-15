@@ -13,6 +13,7 @@ export type CalendarProps = React.ComponentProps<typeof DayPicker>
 function Calendar({ className, classNames, showOutsideDays = true, ...props }: CalendarProps) {
   return (
     <DayPicker
+      initialFocus
       fixedWeeks
       fromYear={new Date().getFullYear() - 10}
       toYear={new Date().getFullYear() + 5}
@@ -35,7 +36,7 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }: C
         head_row: "flex justify-center gap-1",
         head_cell: "text-muted-foreground rounded-md w-9 font-normal text-[0.8rem]",
         row: "flex justify-center gap-1 w-full mt-2",
-        cell: "text-center text-sm p-0 relative [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
+        cell: "text-center text-sm p-0 relative first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
         day: cn(buttonVariants({ variant: "ghost" }), "h-9 w-9 p-0 font-normal aria-selected:opacity-100"),
         day_selected: "[&:not([disabled])]:bg-primary [&:not([disabled])]:text-primary-foreground [&:not([disabled])]:hover:bg-primary [&:not([disabled])]:hover:text-primary-foreground",
         day_today: "bg-accent text-accent-foreground",
