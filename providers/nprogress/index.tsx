@@ -20,10 +20,10 @@ type Props = {
     children: React.ReactNode
 }
 
-const Nprogress = (props: Props) => {
+const NprogressProvider = (props: Props) => {
     return (
         <Fragment>{props.children}</Fragment>
     )
 }
 
-export default Nprogress
+export default NprogressProvider

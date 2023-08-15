@@ -14,10 +14,13 @@ const queryClient = new QueryClient({
 type Props = {
     children: React.ReactNode
 }
-export default function ReactQuery(props: Props) {
+
+const ReactQueryProvider = (props: Props) => {
     return (
         <QueryClientProvider client={queryClient}>
             <Fragment>{props.children}</Fragment>
         </QueryClientProvider>
     )
 }
+
+export default ReactQueryProvider

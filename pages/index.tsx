@@ -18,8 +18,8 @@ const Home = (props: Props) => {
   const [date, setDate] = React.useState<Date>()
 
   return (
-    <div className='flex flex-row gap-5'>
-      <Button onClick={() => router.push("/dashboard")} > Dashboard</Button>
+    <div className='flex flex-col gap-5'>
+      <Button onClick={() => router.push("/dashboard")} >Dashboard</Button>
       <Calendar captionLayout='buttons' className='bg-card border rounded-xl w-fit' />
       <Popover>
         <PopoverTrigger asChild>
@@ -36,8 +36,6 @@ const Home = (props: Props) => {
             defaultMonth={date}
             mode="single"
             captionLayout='dropdown-buttons'
-            fromYear={1960}
-            toYear={2030}
             selected={date}
             onSelect={setDate}
           />

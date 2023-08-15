@@ -7,10 +7,10 @@
     /* color: rgb(248, 250, 252) ; */
     --foreground: 248 250 252;
 
+    /* color: rgb(120, 30, 217); */
+    --primary: 120 30 217;
     /* color: rgb(248, 250, 252) ; */
-    --primary: 248 250 252;
-    /* color: rgb(15, 23, 42) ; */
-    --primary-foreground: 15 23 42;
+    --primary-foreground: 248 250 252;
 
     /* color: rgb(30, 41, 59) ; */
     --secondary: 30 41 59;
