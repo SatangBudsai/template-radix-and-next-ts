@@ -31,7 +31,8 @@ const Home = (props: Props) => {
         </PopoverTrigger>
         <PopoverContent align="start" className="w-auto p-0 rounded-xl">
           <Calendar
-            initialFocus
+            defaultMonth={date}
+            // initialFocus
             mode="single"
             captionLayout='dropdown-buttons'
             fromYear={1960}
