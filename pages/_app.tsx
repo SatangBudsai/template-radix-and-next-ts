@@ -11,6 +11,10 @@ import ThemesProvider from '@/providers/themes';
 import AuthProvider from '@/providers/auth';
 import ReactQuery from '@/providers/react-query';
 
+import dayjs from 'dayjs';
+import buddhistEra from 'dayjs/plugin/buddhistEra'
+dayjs.extend(buddhistEra);
+
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page: ReactElement) => page);
   return (
