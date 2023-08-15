@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils"
 import { Icon } from '@iconify/react';
 import { DayPicker, DropdownProps } from "react-day-picker"
 
-import 'dayjs/locale/th';
 import dayjs from "dayjs"
 import { th } from 'date-fns/locale';
 
