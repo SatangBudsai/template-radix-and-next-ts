@@ -9,6 +9,7 @@ import React, { ReactElement } from 'react'
 import { Icon } from '@iconify/react';
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils'
+
 type Props = {}
 
 const Home = (props: Props) => {
@@ -40,7 +41,7 @@ const Home = (props: Props) => {
           />
         </PopoverContent>
       </Popover>
-      <Calendar captionLayout='dropdown-buttons' className='bg-card border rounded-xl w-fit' />
+      {/* <Calendar captionLayout='dropdown-buttons' className='bg-card border rounded-xl w-fit' /> */}
 
     </div >
   )
