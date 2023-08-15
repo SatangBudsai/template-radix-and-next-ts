@@ -17,8 +17,9 @@ const Home = (props: Props) => {
   const [date, setDate] = React.useState<Date>()
 
   return (
-    <div className='flex flex-col gap-5'>
+    <div className='flex flex-row gap-5'>
       <Button onClick={() => router.push("/dashboard")} > Dashboard</Button>
+      <Calendar captionLayout='buttons' className='bg-card border rounded-xl w-fit' />
       <Popover>
         <PopoverTrigger asChild>
           <Button
@@ -26,13 +27,12 @@ const Home = (props: Props) => {
             className={cn("w-[240px] justify-start text-left font-normal", !date && "text-muted-foreground")}
           >
             <Icon icon="solar:calendar-outline" className="mr-2 h-5 w-5" />
-            {date ? format(date, "PPP") : <span>Pick a date</span>}
+            {date ? format(date, "dd/MM/yyyy") : <span>Pick a date</span>}
           </Button>
         </PopoverTrigger>
         <PopoverContent align="start" className="w-auto p-0 rounded-xl">
           <Calendar
             defaultMonth={date}
-            // initialFocus
             mode="single"
             captionLayout='dropdown-buttons'
             fromYear={1960}
@@ -42,8 +42,6 @@ const Home = (props: Props) => {
           />
         </PopoverContent>
       </Popover>
-      {/* <Calendar captionLayout='dropdown-buttons' className='bg-card border rounded-xl w-fit' /> */}
-
     </div >
   )
 }
