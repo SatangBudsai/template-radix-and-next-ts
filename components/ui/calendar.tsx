@@ -7,27 +7,34 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { cn } from "@/lib/utils"
 import { Icon } from '@iconify/react';
 import { DayPicker, DropdownProps } from "react-day-picker"
-
 import dayjs from "dayjs"
-import { th } from 'date-fns/locale';
 
 const formatCaption = (date: Date) => {
-  const y = formatYearCaption(date);
-  const m = dayjs(date).format('MMMM');
+  const y = dayjs(date).format("YYYY")
+  const m = dayjs(date).format("MMMM")
   return `${m} ${y}`;
 };
 
 const formatYearCaption = (date: Date) => {
-  const y = dayjs(date).format('BBBB'); //year buddhist
+  const y = dayjs(date).format("YYYY")
   return `${y}`;
+};
+
+const formatMonthCaption = (date: Date) => {
+  const m = dayjs(date).format("MMMM")
+  return `${m}`;
+};
+
+const formatWeekdayName = (date: Date) => {
+  const d = dayjs(date).format("dd")
+  return `${d}`;
 };
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>
 function Calendar({ className, classNames, showOutsideDays = true, ...props }: CalendarProps) {
   return (
     <DayPicker
-      formatters={{ formatCaption, formatYearCaption }}
-      locale={th}
+      formatters={{ formatCaption, formatYearCaption, formatMonthCaption, formatWeekdayName }}
       initialFocus
       fixedWeeks
       fromYear={new Date().getFullYear() - 5}

@@ -1,19 +1,20 @@
 "use client"
 import { Fragment } from 'react';
 import dayjs from 'dayjs';
-import 'dayjs/locale/th';
+import 'dayjs/locale/en';
 import buddhistEra from 'dayjs/plugin/buddhistEra'
 
 type Props = {
     children: React.ReactNode
 }
 
-const LocateProvider = (props: Props) => {
-    dayjs.locale('th');
+const DateProvider = (props: Props) => {
+    dayjs.locale('en');
     dayjs.extend(buddhistEra);
+
     return (
         <Fragment>{props.children}</Fragment>
     )
 }
 
-export default LocateProvider
+export default DateProvider

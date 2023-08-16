@@ -10,7 +10,7 @@ import NprogressProvider from '@/providers/nprogress'
 import ThemesProvider from '@/providers/themes';
 import AuthProvider from '@/providers/auth';
 import ReactQueryProvider from '@/providers/react-query';
-import LocateProvider from '@/providers/locate';
+import DateProvider from '@/providers/date';
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page: ReactElement) => page);
@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <ReactQueryProvider>
       <Provider store={store}>
-        <LocateProvider>
+        <DateProvider>
           <ThemesProvider >
             <NprogressProvider>
               <AuthProvider>
@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
               </AuthProvider>
             </NprogressProvider>
           </ThemesProvider>
-        </LocateProvider>
+        </DateProvider>
       </Provider>
     </ReactQueryProvider>
   )
