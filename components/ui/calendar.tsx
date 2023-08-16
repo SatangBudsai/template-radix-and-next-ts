@@ -13,8 +13,8 @@ import { DateFormat } from "@/lib/date-format"
 const year = "BBBB"
 
 const formatCaption = (date: Date) => {
-  const y = DateFormat(dayjs(date).add(7, "day"), "YYYY")
-  const m = dayjs(date).format("MMMM" + year)
+  const y = DateFormat(dayjs(date), "YYYY")
+  const m = dayjs(date).format("MMMM")
   return `${m} ${y}`;
 };
 const formatYearCaption = (date: Date) => {

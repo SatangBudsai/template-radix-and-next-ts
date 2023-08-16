@@ -1,6 +1,6 @@
-import dayjs, { Dayjs } from "dayjs";
+import { Dayjs } from "dayjs";
 
 export const DateFormat = (date: Dayjs, format: string) => {
-    const modifiedDate = dayjs(date).format(format)
+    const modifiedDate = date.format(format)
     return modifiedDate
 }
