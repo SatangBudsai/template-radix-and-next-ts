@@ -21,7 +21,7 @@ function DatePicker({ className, classNames, ...props }: CalendarProps) {
                     className={cn("w-[240px] justify-start text-left font-normal", !date && "text-muted-foreground")}
                 >
                     <Icon icon="solar:calendar-outline" className="mr-2 h-5 w-5" />
-                    {date ? format(date, "PPP") : <span>Pick a date</span>}
+                    {date ? format(date, "YYYY") : <span>Pick a date</span>}
                 </Button>
             </PopoverTrigger>
             <PopoverContent align="start" className="w-auto p-0 rounded-xl">
