@@ -10,25 +10,23 @@ import { DayPicker, DropdownProps } from "react-day-picker"
 import dayjs from "dayjs"
 import { DateFormat } from "@/lib/date-format"
 
-const year = "BBBB"
-
 const formatCaption = (date: Date) => {
   const y = DateFormat(dayjs(date), "YYYY")
   const m = dayjs(date).format("MMMM")
   return `${m} ${y}`;
 };
 const formatYearCaption = (date: Date) => {
-  const y = dayjs(date).format(year)
+  const y = DateFormat(dayjs(date), "YYYY")
   return `${y}`;
 };
 
 const formatMonthCaption = (date: Date) => {
-  const m = dayjs(date).format("MMMM")
+  const m = DateFormat(dayjs(date), "MMMM")
   return `${m}`;
 };
 
 const formatWeekdayName = (date: Date) => {
-  const d = dayjs(date).format("dd")
+  const d = DateFormat(dayjs(date), "dd")
   return `${d}`;
 };
 

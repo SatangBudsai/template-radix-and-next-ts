@@ -11,7 +11,6 @@ type Props = {
 const DateProvider = (props: Props) => {
     dayjs.locale('en');
     dayjs.extend(buddhistEra);
-
     return (
         <Fragment>{props.children}</Fragment>
     )
