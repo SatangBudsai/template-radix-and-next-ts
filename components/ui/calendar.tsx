@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 import { Icon } from '@iconify/react';
 import { DayPicker, DropdownProps } from "react-day-picker"
 import dayjs from "dayjs"
-import { DateFormat } from "@/lib/date-format"
+import { DateFormat } from "@/utils/date-format"
 
 const formatCaption = (date: Date) => {
   const y = DateFormat(dayjs(date), "YYYY")

@@ -9,6 +9,7 @@ import React, { ReactElement } from 'react'
 import { Icon } from '@iconify/react';
 import { cn } from '@/lib/utils'
 import dayjs from 'dayjs'
+import { DateFormat } from '@/utils/date-format'
 
 type Props = {}
 
@@ -27,7 +28,7 @@ const Home = (props: Props) => {
             className={cn("w-[240px] justify-start text-left font-normal", !date && "text-muted-foreground")}
           >
             <Icon icon="solar:calendar-outline" className="mr-2 h-5 w-5" />
-            {date ? dayjs(date).format("DD/MM/YYYY") : <span>Pick a date</span>}
+            {date ? DateFormat(dayjs(date), "DD/MM/YYYY") : <span>Pick a date</span>}
           </Button>
         </PopoverTrigger>
         <PopoverContent align="start" className="w-auto p-0 rounded-xl">

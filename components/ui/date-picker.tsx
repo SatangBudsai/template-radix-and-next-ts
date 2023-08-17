@@ -8,6 +8,8 @@ import { DayPicker } from "react-day-picker"
 import { Popover, PopoverContent, PopoverTrigger } from "./popover"
 import { Calendar } from "@/components/ui/calendar"
 import { format } from "date-fns"
+import { DateFormat } from "@/utils/date-format";
+import dayjs from "dayjs";
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>
 
@@ -21,7 +23,7 @@ function DatePicker({ className, classNames, ...props }: CalendarProps) {
                     className={cn("w-[240px] justify-start text-left font-normal", !date && "text-muted-foreground")}
                 >
                     <Icon icon="solar:calendar-outline" className="mr-2 h-5 w-5" />
-                    {date ? format(date, "YYYY") : <span>Pick a date</span>}
+                    {date ? DateFormat(dayjs(date), "DD/MM/YYYY") : <span>Pick a date</span>}
                 </Button>
             </PopoverTrigger>
             <PopoverContent align="start" className="w-auto p-0 rounded-xl">
