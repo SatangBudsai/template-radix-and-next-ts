@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils'
 import dayjs from 'dayjs'
 import { DateFormat } from '@/utils/date-format'
 import { DateRange } from 'react-day-picker'
+import Datepicker from '@/components/ui/date-picker'
 
 type Props = {}
 
@@ -50,6 +51,14 @@ const Home = (props: Props) => {
           onSelect={setRangeDate}
         />
       </PopoverDatePicker>
+      <Datepicker
+        mode="single"
+        captionLayout='dropdown-buttons'
+        selected={date}
+        onSelect={setDate}
+        defaultMonth={date}
+        placeholder='Pick a date'
+      />
     </div >
   )
 }
