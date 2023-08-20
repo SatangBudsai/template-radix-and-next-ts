@@ -1,46 +1,55 @@
 import MainLayout from '@/components/layouts/MainLayout'
 import RootLayout from '@/components/layouts/RootLayout'
 import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/calendar'
-import { DatePicker } from '@/components/ui/date-picker'
+import { Calendar, PopoverDatePicker } from '@/components/ui/calendar'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { useRouter } from 'next/router'
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useState } from 'react'
 import { Icon } from '@iconify/react';
 import { cn } from '@/lib/utils'
 import dayjs from 'dayjs'
 import { DateFormat } from '@/utils/date-format'
+import { DateRange } from 'react-day-picker'
 
 type Props = {}
 
 const Home = (props: Props) => {
   const router = useRouter()
-  const [date, setDate] = React.useState<Date>()
+  const [date, setDate] = useState<Date | undefined>()
+  const [arrDate, setArrDate] = useState<Date[] | undefined>()
+  const [rangeDate, setRangeDate] = useState<DateRange | undefined>()
 
   return (
     <div className='flex flex-col gap-5'>
       <Button onClick={() => router.push("/dashboard")} >Dashboard</Button>
       <Calendar captionLayout='buttons' className='bg-card border rounded-xl w-fit' />
-      <Popover>
-        <PopoverTrigger asChild>
-          <Button
-            variant={"outline"}
-            className={cn("w-[240px] justify-start text-left font-normal", !date && "text-muted-foreground")}
-          >
-            <Icon icon="solar:calendar-outline" className="mr-2 h-5 w-5" />
-            {date ? DateFormat(dayjs(date), "DD/MM/YYYY") : <span>Pick a date</span>}
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent align="start" className="w-auto p-0 rounded-xl">
-          <Calendar
-            defaultMonth={date}
-            mode="single"
-            captionLayout='dropdown-buttons'
-            selected={date}
-            onSelect={setDate}
-          />
-        </PopoverContent>
-      </Popover>
+      <PopoverDatePicker placeholder='Pick a date' value={date}>
+        <Calendar
+          mode="single"
+          captionLayout='dropdown-buttons'
+          selected={date}
+          onSelect={setDate}
+          defaultMonth={date}
+        />
+      </PopoverDatePicker>
+      <PopoverDatePicker placeholder='Pick a date' value={arrDate}>
+        <Calendar
+          mode="multiple"
+          captionLayout='dropdown-buttons'
+          min={1}
+          max={5}
+          selected={arrDate}
+          onSelect={setArrDate}
+        />
+      </PopoverDatePicker>
+      <PopoverDatePicker placeholder='Pick a date' value={arrDate}>
+        <Calendar
+          mode="range"
+          captionLayout='dropdown-buttons'
+          selected={rangeDate}
+          onSelect={setRangeDate}
+        />
+      </PopoverDatePicker>
     </div >
   )
 }

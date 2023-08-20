@@ -1,45 +1,42 @@
-"use client"
-
-import * as React from "react"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
-import { Icon } from '@iconify/react';
-import { DayPicker } from "react-day-picker"
-import { Popover, PopoverContent, PopoverTrigger } from "./popover"
-import { Calendar } from "@/components/ui/calendar"
-import { format } from "date-fns"
+import { Icon } from "@iconify/react/dist/iconify.js";
+import { Button } from "./button";
+import { Popover, PopoverContent, PopoverTrigger } from "./popover";
 import { DateFormat } from "@/utils/date-format";
 import dayjs from "dayjs";
+import { Badge } from "./badge";
+import { cn } from "@/lib/utils";
 
-export type CalendarProps = React.ComponentProps<typeof DayPicker>
+type PopoverInputDateProps = {
+    placeholder?: string;
+    value?: Date | Date[] | undefined;
+    children: React.ReactNode;
+};
 
-function DatePicker({ className, classNames, ...props }: CalendarProps) {
-    const [date, setDate] = React.useState<Date>()
+const Datepicker = (props: PopoverInputDateProps) => {
+    const { placeholder, value, children } = props;
     return (
         <Popover>
             <PopoverTrigger asChild>
                 <Button
                     variant={"outline"}
-                    className={cn("w-[240px] justify-start text-left font-normal", !date && "text-muted-foreground")}
+                    className={cn(
+                        "w-[240px] justify-start text-left font-normal",
+                        !value && "text-muted-foreground"
+                    )}
                 >
                     <Icon icon="solar:calendar-outline" className="mr-2 h-5 w-5" />
-                    {date ? DateFormat(dayjs(date), "DD/MM/YYYY") : <span>Pick a date</span>}
+                    {value && !Array.isArray(value) ? (
+                        DateFormat(dayjs(value), "DD/MM/YYYY")
+                    ) : value && Array.isArray(value) ? (
+                        value.map(item => <Badge>{DateFormat(dayjs(item), "DD/MM/YYYY")}</Badge>)
+                    ) : (
+                        <span>{placeholder}</span>
+                    )}
                 </Button>
             </PopoverTrigger>
             <PopoverContent align="start" className="w-auto p-0 rounded-xl">
-                <Calendar
-                    mode="single"
-                    captionLayout="dropdown-buttons"
-                    selected={date}
-                    onSelect={setDate}
-                    fromYear={1960}
-                    toYear={2030}
-                    className={cn(className)}
-                />
+                {children}
             </PopoverContent>
         </Popover>
-    )
-}
-DatePicker.displayName = "DatePicker"
-
-export { DatePicker }
+    );
+};
