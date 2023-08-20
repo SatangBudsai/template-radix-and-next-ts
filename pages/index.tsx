@@ -46,9 +46,11 @@ const Home = (props: Props) => {
       <PopoverDatePicker placeholder='Pick a date' value={arrDate}>
         <Calendar
           mode="range"
+          defaultMonth={rangeDate?.from}
           captionLayout='dropdown-buttons'
           selected={rangeDate}
           onSelect={setRangeDate}
+          numberOfMonths={2}
         />
       </PopoverDatePicker>
       <Datepicker

@@ -168,7 +168,7 @@ const PopoverDatePicker = (props: PopoverInputDateProps) => {
           {value && !Array.isArray(value) ? (
             DateFormat(dayjs(value), "DD/MM/YYYY")
           ) : value && Array.isArray(value) ? (
-            value.map(item => <Badge>{DateFormat(dayjs(item), "DD/MM/YYYY")}</Badge>)
+            value.map((item, index) => <Badge key={index}>{DateFormat(dayjs(item), "DD/MM/YYYY")}</Badge>)
           ) : (
             <span>{placeholder}</span>
           )}
