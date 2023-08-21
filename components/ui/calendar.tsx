@@ -55,7 +55,6 @@ const Calendar = ({
         formatMonthCaption,
         formatWeekdayName,
       }}
-      initialFocus
       fixedWeeks
       fromYear={new Date().getFullYear() - 5}
       toYear={new Date().getFullYear() + 5}
