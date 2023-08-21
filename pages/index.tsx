@@ -1,7 +1,7 @@
 import MainLayout from '@/components/layouts/MainLayout'
 import RootLayout from '@/components/layouts/RootLayout'
 import { Button } from '@/components/ui/button'
-import { Calendar, PopoverDatePicker } from '@/components/ui/calendar'
+import { Calendar, InputDate } from '@/components/ui/calendar'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { useRouter } from 'next/router'
 import React, { ReactElement, useState } from 'react'
@@ -10,7 +10,6 @@ import { cn } from '@/lib/utils'
 import dayjs from 'dayjs'
 import { DateFormat } from '@/utils/date-format'
 import { DateRange } from 'react-day-picker'
-import Datepicker from '@/components/ui/date-picker'
 
 type Props = {}
 
@@ -24,7 +23,7 @@ const Home = (props: Props) => {
     <div className='flex flex-col gap-5'>
       <Button onClick={() => router.push("/dashboard")} >Dashboard</Button>
       <Calendar captionLayout='buttons' className='bg-card border rounded-xl w-fit' />
-      <PopoverDatePicker placeholder='Pick a date' value={date}>
+      <InputDate placeholder='Pick a date' selected={date}>
         <Calendar
           mode="single"
           captionLayout='dropdown-buttons'
@@ -32,18 +31,17 @@ const Home = (props: Props) => {
           onSelect={setDate}
           defaultMonth={date}
         />
-      </PopoverDatePicker>
-      <PopoverDatePicker placeholder='Pick a date' value={arrDate}>
+      </InputDate>
+      <InputDate placeholder='Pick a date' selected={arrDate}>
         <Calendar
           mode="multiple"
           captionLayout='dropdown-buttons'
           min={1}
-          max={5}
           selected={arrDate}
           onSelect={setArrDate}
         />
-      </PopoverDatePicker>
-      <PopoverDatePicker placeholder='Pick a date' value={arrDate}>
+      </InputDate>
+      <InputDate placeholder='Pick a date' selected={rangeDate}>
         <Calendar
           mode="range"
           defaultMonth={rangeDate?.from}
@@ -52,15 +50,7 @@ const Home = (props: Props) => {
           onSelect={setRangeDate}
           numberOfMonths={2}
         />
-      </PopoverDatePicker>
-      <Datepicker
-        mode="single"
-        captionLayout='dropdown-buttons'
-        selected={date}
-        onSelect={setDate}
-        defaultMonth={date}
-        placeholder='Pick a date'
-      />
+      </InputDate>
     </div >
   )
 }

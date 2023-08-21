@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 import { Icon } from "@iconify/react";
-import { DayPicker, DropdownProps } from "react-day-picker";
+import { DateRange, DayPicker, DropdownProps } from "react-day-picker";
 import dayjs from "dayjs";
 import { DateFormat } from "@/utils/date-format";
 import { Popover, PopoverContent, PopoverTrigger } from "./popover";
@@ -73,20 +73,22 @@ const Calendar = ({
           buttonVariants({ variant: "outline" }),
           "h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100"
         ),
-        nav_button_previous: "absolute left-0",
-        nav_button_next: "absolute right-0",
-        table: "w-72 border-collapse space-y-1",
-        head_row: "flex justify-center gap-1",
+        nav_button_previous: "absolute left-1",
+        nav_button_next: "absolute right-1",
+        table: "w-full border-collapse space-y-1",
+        head_row: "flex",
         head_cell:
           "text-muted-foreground rounded-md w-9 font-normal text-[0.8rem]",
-        row: "flex justify-center gap-1 w-full mt-2",
-        cell: "text-center text-sm p-0 relative first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
+        row: "flex w-full mt-2",
+        cell: "text-center text-sm p-0 relative [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
         day: cn(
           buttonVariants({ variant: "ghost" }),
           "h-9 w-9 p-0 font-normal aria-selected:opacity-100"
         ),
+        // day_selected:
+        //   "[&:not([disabled])]:bg-primary [&:not([disabled])]:text-primary-foreground [&:not([disabled])]:hover:bg-primary [&:not([disabled])]:hover:text-primary-foreground",
         day_selected:
-          "[&:not([disabled])]:bg-primary [&:not([disabled])]:text-primary-foreground [&:not([disabled])]:hover:bg-primary [&:not([disabled])]:hover:text-primary-foreground",
+          "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground",
         day_today: "bg-accent text-accent-foreground",
         day_outside: "text-muted-foreground opacity-50",
         day_disabled: "text-muted-foreground opacity-50",
@@ -148,31 +150,41 @@ Calendar.displayName = "Calendar";
 
 type PopoverInputDateProps = {
   placeholder?: string;
-  value?: Date | Date[] | undefined;
+  selected?: Date | Date[] | DateRange | undefined;
   children: React.ReactNode;
 };
 
-const PopoverDatePicker = (props: PopoverInputDateProps) => {
-  const { placeholder, value, children } = props;
+const InputDate = (props: PopoverInputDateProps) => {
+  const { placeholder, selected, children } = props;
+  const isDate = (selected: Date | Date[] | DateRange | undefined): selected is Date => selected instanceof Date;
+  const isDatemultiple = (selected: Date[] | DateRange | undefined): selected is Date[] => Array.isArray(selected);
+  const isDateRange = (selected: Date | Date[] | DateRange | undefined) =>
+    selected !== undefined && !(selected instanceof Date) && !Array.isArray(selected) && 'from' in selected && 'to' in selected;
+
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button
-          variant={"outline"}
+        <div
           className={cn(
-            "w-[240px] justify-start text-left font-normal",
-            !value && "text-muted-foreground"
+            "flex flex-wrap gap-y-2 justify-start text-sm text-left font-normal border p-2 rounded-xl cursor-pointer",
+            !selected && "text-muted-foreground"
           )}
         >
           <Icon icon="solar:calendar-outline" className="mr-2 h-5 w-5" />
-          {value && !Array.isArray(value) ? (
-            DateFormat(dayjs(value), "DD/MM/YYYY")
-          ) : value && Array.isArray(value) ? (
-            value.map((item, index) => <Badge key={index}>{DateFormat(dayjs(item), "DD/MM/YYYY")}</Badge>)
-          ) : (
+          {isDate(selected) ? (
+            /* ------------------------------- Date Picker ------------------------------ */
+            <div>{DateFormat(dayjs(selected), "DD/MM/YYYY")}</div>
+          ) : isDatemultiple(selected) ? (
+            selected.map((item, index) => (
+              /* -------------------------- Date Multiple Picker -------------------------- */
+              <Badge variant={"secondary"} key={index} className="font-medium">{DateFormat(dayjs(item), "DD/MM/YYYY")}</Badge>
+            ))) : isDateRange(selected) ? (
+              /* ---------------------------- Date Range Picker --------------------------- */
+              <div>{`${DateFormat(dayjs(selected?.from), "DD/MM/YYYY")} - ${DateFormat(dayjs(selected?.to), "DD/MM/YYYY")}`}</div>
+            ) : (
             <span>{placeholder}</span>
           )}
-        </Button>
+        </div>
       </PopoverTrigger>
       <PopoverContent align="start" className="w-auto p-0 rounded-xl">
         {children}
@@ -181,4 +193,4 @@ const PopoverDatePicker = (props: PopoverInputDateProps) => {
   );
 };
 
-export { Calendar, PopoverDatePicker };
+export { Calendar, InputDate };
