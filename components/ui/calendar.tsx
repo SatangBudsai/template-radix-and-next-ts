@@ -157,7 +157,9 @@ const InputDate = (props: PopoverInputDateProps) => {
   const isDate = (selected: Date | Date[] | DateRange | undefined): selected is Date => selected instanceof Date;
   const isDatemultiple = (selected: Date[] | DateRange | undefined): selected is Date[] => Array.isArray(selected);
   const isDateRange = (selected: Date | Date[] | DateRange | undefined) =>
-    selected !== undefined && !(selected instanceof Date) && !Array.isArray(selected) && 'from' in selected && 'to' in selected;
+    selected && !(selected instanceof Date) && !Array.isArray(selected) && selected.from && selected.to
+
+  console.log("selected", selected);
 
   return (
     <Popover>
