@@ -26,7 +26,6 @@ const Home = (props: Props) => {
       <InputDate placeholder='Pick a date' selected={date}>
         <Calendar
           mode="single"
-          initialFocus
           captionLayout='dropdown-buttons'
           selected={date}
           onSelect={setDate}
@@ -36,7 +35,6 @@ const Home = (props: Props) => {
       <InputDate placeholder='Pick a date' selected={arrDate}>
         <Calendar
           mode="multiple"
-          initialFocus
           captionLayout='dropdown-buttons'
           min={1}
           selected={arrDate}
@@ -46,7 +44,6 @@ const Home = (props: Props) => {
       <InputDate placeholder='Pick a date' selected={rangeDate}>
         <Calendar
           mode="range"
-          initialFocus
           defaultMonth={rangeDate?.from}
           captionLayout='dropdown-buttons'
           selected={rangeDate}
