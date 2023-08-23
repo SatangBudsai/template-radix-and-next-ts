@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
 import {
     Popover,
@@ -12,7 +11,7 @@ import {
 import { Icon } from "@iconify/react"
 import { DateFormat } from "@/utils/date-format"
 import dayjs from "dayjs"
-import { DateRange, DayPicker, Matcher } from "react-day-picker"
+import { DateRange, DayPicker } from "react-day-picker"
 
 type Props = {
     placeholder?: string
@@ -21,7 +20,7 @@ type Props = {
 }
 type CalendarProps = React.ComponentProps<typeof DayPicker>;
 
-export function DateRangePicker({ placeholder, classNameInput, ...props }: CalendarProps & Props) {
+const DateRangePicker = ({ placeholder, classNameInput, ...props }: CalendarProps & Props) => {
     const isDateRange = (selected: DateRange | undefined) => (
         selected && !(selected instanceof Date) && !Array.isArray(selected) && selected.from && selected.to
     )
@@ -49,3 +48,4 @@ export function DateRangePicker({ placeholder, classNameInput, ...props }: Calen
         </Popover>
     )
 }
+export default DateRangePicker
