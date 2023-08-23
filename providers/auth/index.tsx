@@ -23,7 +23,7 @@ const AuthProvider = (props: Props) => {
         } else {
             setLoading(false)
         }
-    }, [])
+    }, [router.asPath])
 
     if (isLoading) {
         return null // Or you can return a loading
