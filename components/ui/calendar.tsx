@@ -156,8 +156,9 @@ const InputDate = (props: PopoverInputDateProps) => {
   const { placeholder, selected, children } = props;
   const isDate = (selected: Date | Date[] | DateRange | undefined): selected is Date => selected instanceof Date;
   const isDatemultiple = (selected: Date[] | DateRange | undefined): selected is Date[] => Array.isArray(selected);
-  const isDateRange = (selected: Date | Date[] | DateRange | undefined) =>
+  const isDateRange = (selected: Date | Date[] | DateRange | undefined) => (
     selected && !(selected instanceof Date) && !Array.isArray(selected) && selected.from && selected.to
+  )
 
   console.log("selected", selected);
 

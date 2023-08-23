@@ -10,6 +10,9 @@ import { cn } from '@/lib/utils'
 import dayjs from 'dayjs'
 import { DateFormat } from '@/utils/date-format'
 import { DateRange } from 'react-day-picker'
+import { DatePicker } from '@/components/ui/date-picker'
+import { DateMultiplePicker } from '@/components/ui/date-multiple-picker'
+import { DateRangePicker } from '@/components/ui/date-range-picker'
 
 type Props = {}
 
@@ -51,6 +54,30 @@ const Home = (props: Props) => {
           numberOfMonths={2}
         />
       </InputDate>
+      <DatePicker
+        mode="single"
+        placeholder='Picker Date'
+        selected={date}
+        onSelect={setDate}
+        initialFocus
+      />
+      <DateMultiplePicker
+        mode="multiple"
+        placeholder='Picker Date'
+        captionLayout='dropdown-buttons'
+        min={1}
+        selected={arrDate}
+        onSelect={setArrDate}
+      />
+      <DateRangePicker
+        mode="range"
+        placeholder='Picker Date'
+        defaultMonth={rangeDate?.from}
+        captionLayout='dropdown-buttons'
+        selected={rangeDate}
+        onSelect={setRangeDate}
+        numberOfMonths={2}
+      />
     </div >
   )
 }
