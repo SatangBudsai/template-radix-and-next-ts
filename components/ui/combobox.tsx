@@ -18,7 +18,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 
-const frameworks = [
+const options = [
     {
         value: "01",
         label: "Next.js",
@@ -55,19 +55,19 @@ const Combobox = () => {
                     className="w-[200px] justify-between"
                 >
                     {value
-                        ? frameworks.find((framework) => framework.value === value)?.label
+                        ? options.find((option) => option.value === value)?.label
                         : "Select framework..."}
                     <Icon icon="mingcute:down-fill" className="ml-2 h-4 w-4 shrink-0 text-muted-foreground" />
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-[200px] p-0">
+            <PopoverContent className="w-[200px] p-0" side="bottom">
                 <Command>
                     <CommandInput placeholder="Search framework..." />
                     <CommandEmpty>No framework found.</CommandEmpty>
                     <CommandGroup>
-                        {frameworks.map((framework) => (
+                        {options.map((option) => (
                             <CommandItem
-                                key={framework.value}
+                                key={option.value}
                                 onSelect={(currentValue) => {
                                     setValue(currentValue === value ? "" : currentValue)
                                     setOpen(false)
@@ -75,9 +75,9 @@ const Combobox = () => {
                             >
                                 <Icon icon="iconamoon:check-bold" className={cn(
                                     "mr-2 h-4 w-4",
-                                    value === framework.value ? "opacity-100" : "opacity-0"
+                                    value === option.value ? "opacity-100" : "opacity-0"
                                 )} />
-                                {framework.label}
+                                {option.label}
                             </CommandItem>
                         ))}
                     </CommandGroup>
