@@ -9,7 +9,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 import { Icon } from "@iconify/react"
-import { DateFormat } from "@/utils/date-format"
+import { useDataFormat } from "@/hooks/use-date-format"
 import dayjs from "dayjs"
 import { DayPicker } from "react-day-picker"
 import { Badge } from "./badge"
@@ -36,7 +36,7 @@ const DateMultiplePicker = ({ placeholder, classNameInput, ...props }: CalendarP
                     <Icon icon="solar:calendar-outline" className="mr-2 h-5 w-5" />
                     {props.selected && isMultipleDate(props.selected) ?
                         props.selected.map((item, index) => (
-                            <Badge variant={"secondary"} key={index} className="font-medium">{DateFormat(dayjs(item), "DD/MM/YYYY")}</Badge>
+                            <Badge variant={"secondary"} key={index} className="font-medium">{useDataFormat(dayjs(item), "DD/MM/YYYY")}</Badge>
                         )) :
                         <span>{placeholder}</span>}
                 </div>

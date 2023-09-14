@@ -9,7 +9,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 import { Icon } from "@iconify/react"
-import { DateFormat } from "@/utils/date-format"
+import { useDataFormat } from "@/hooks/use-date-format"
 import dayjs from "dayjs"
 import { DateRange, DayPicker } from "react-day-picker"
 
@@ -36,7 +36,7 @@ const DateRangePicker = ({ placeholder, classNameInput, ...props }: CalendarProp
                 >
                     <Icon icon="solar:calendar-outline" className="mr-2 h-5 w-5" />
                     {props.selected && isDateRange(props.selected) ?
-                        <div>{`${DateFormat(dayjs(props.selected?.from), "DD/MM/YYYY")} - ${DateFormat(dayjs(props.selected?.to), "DD/MM/YYYY")}`}</div> :
+                        <div>{`${useDataFormat(dayjs(props.selected?.from), "DD/MM/YYYY")} - ${useDataFormat(dayjs(props.selected?.to), "DD/MM/YYYY")}`}</div> :
                         <span>{placeholder}</span>}
                 </div>
             </PopoverTrigger>

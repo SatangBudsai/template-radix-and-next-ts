@@ -14,28 +14,28 @@ import { cn } from "@/lib/utils";
 import { Icon } from "@iconify/react";
 import { DateRange, DayPicker, DropdownProps } from "react-day-picker";
 import dayjs from "dayjs";
-import { DateFormat } from "@/utils/date-format";
+import { useDataFormat } from "@/hooks/use-date-format";
 import { Popover, PopoverContent, PopoverTrigger } from "./popover";
 import { Badge } from "./badge";
 
 const formatCaption = (date: Date) => {
-  const y = DateFormat(dayjs(date), "YYYY");
+  const y = useDataFormat(dayjs(date), "YYYY");
   const m = dayjs(date).format("MMMM");
   return `${m} ${y}`;
 };
 
 const formatYearCaption = (date: Date) => {
-  const y = DateFormat(dayjs(date), "YYYY");
+  const y = useDataFormat(dayjs(date), "YYYY");
   return `${y}`;
 };
 
 const formatMonthCaption = (date: Date) => {
-  const m = DateFormat(dayjs(date), "MMMM");
+  const m = useDataFormat(dayjs(date), "MMMM");
   return `${m}`;
 };
 
 const formatWeekdayName = (date: Date) => {
-  const d = DateFormat(dayjs(date), "dd");
+  const d = useDataFormat(dayjs(date), "dd");
   return `${d}`;
 };
 
